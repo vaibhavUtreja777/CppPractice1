@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+using namespace std;
+struct node{
+    int data;
+    struct node *link;//self refrential structure
+};
+
+int main()
+{
+   struct node *head =malloc(sizeof(struct node));
+  
+   head->data =45;
+   head->link =NULL;
+
+   struct node *current =malloc(sizeof(struct node));
+   current->data =98;
+   current->link=NULL;
+   head->link=current;
+
+   
+
+//    struct node *current2 =malloc(sizeof(struct node));
+//    current2->data=3;
+//    current2->link=NULL;
+//    current->link=current2;
+// This is method 1 of adding the 3 node 
+// It is not a good method as it takes up too much of the memory
+
+
+//2nd method:-
+current =malloc(sizeof(struct node));   
+current->data=3;
+current->link=NULL;
+head->link->link=current;
+   
+   
+   return 0;
+}
