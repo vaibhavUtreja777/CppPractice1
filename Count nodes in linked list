@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+using namespace std;
+struct node{
+    int data;
+    struct node *link;
+};
+void count_of_node(struct node* head){
+
+    int count=0;
+    if(head== NULL)
+        printf("linked list is empty");
+    struct node *ptr =NULL;
+    ptr=head;
+    while(ptr!=NULL){
+        count++;
+        ptr=NULL;
+    }
+    printf("%d",count);
+
+}
+
+
+
+int main (){
+    //Code for a single linked list here
+    count_of_node(head);
+    
+
+}
