@@ -1,0 +1,98 @@
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 4
+int stack_aarr[MAX];
+int top = -1; // Stack is empty;
+
+int isFull() {
+  if (top == MAX - 1) {
+    return 1;
+
+  } else {
+    return 0;
+  }
+}
+int is_Empty() {
+  if (top == -1) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+void push(int data) {
+  if (top == MAX - 1) {
+    printf("Stack is overflowed\n");
+    return;
+  }
+  top = top + 1;
+  stack_aarr[top] = data;
+}
+int pop() {
+  int value;
+  if (top == -1) {
+    printf("stack Underflowed");
+    exit(1);
+  }
+  value = stack_aarr[top];
+  top = top - 1;
+  return value;
+}
+int peek() {
+  if (is_Empty()) {
+    printf("Stack Underflow");
+    exit(1);
+
+  } else {
+    return stack_aarr[top];
+  }
+}
+void print() {
+
+  if (top == -1) {
+    printf("stack underflowed");
+    return;
+  }
+  for (int i = top; i >= 0; i--)
+    printf("%d ", stack_aarr[i]);
+  printf("\n");
+}
+
+int main() {
+  int choice, data;
+  while (1) {
+    printf("\n");
+    printf("1. push");
+    printf("2. pop ");
+    printf("3.print top element");
+    printf("4.print all the element");
+    printf("5. OUIT");
+    printf("Please enter your choice ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+    case 1:
+      printf("Enter the element to be pushed");
+      scanf("%d", &data);
+      push(data);
+      break;
+    case 2:
+      data = pop();
+      printf("Element Delelted is: %d\n", data);
+      break;
+    case 3:
+      printf("The topmost element of stack is %d\n", data);
+      break;
+    case 4:
+      print();
+      break;
+    case 5:
+      exit(1);
+
+    default:
+      printf("Wrong CHOICE!TRY AGAIN\n");
+    }
+  }
+
+  return 0;
+}
